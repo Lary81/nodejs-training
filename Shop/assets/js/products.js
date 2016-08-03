@@ -1,19 +1,39 @@
 (function () {
     'use strict';
-
     library.onReady(function () {
         var dom = this.namespace('dom'),
             remote = this.namespace('remote'),
-            myDiv = dom.get('#myDiv');
+            url = 'products.json',
+            $ = this;
 
-        function print(data) {
-            console.log(data);
+        function refreshProductsView(products) {
+            dom.render('#products tbody', '#productsTemplate', products);
         }
 
-        function refreshProductsData() {
-            remote.ajax({url: 'products.json', onSuccess: print})
+        function filterProducts(data) {
+            return new Promise(function (resolve) {
+                resolve({
+                    products: $.filterByKeyValue(data.products, dom.getValue('#filterBy'), dom.getValue('#filterValue'))
+                })
+            });
         }
 
-        this.on(myDiv, 'click', refreshProductsData);
+        function getProductsData() {
+            return remote.ajax({url: url, useCache: false});
+        }
+
+        function onError(xhr) {
+            console.log(xhr);
+        }
+
+        $.on(dom.get('#filterBtn'), 'click', function () {
+            getProductsData().then(filterProducts, onError).then(refreshProductsView);
+        });
+
+        $.on(dom.get('#refreshBtn'), 'click', function () {
+            getProductsData().then(refreshProductsView, onError);
+        });
+
+        dom.get('#filterValue').focus();
     });
 })();

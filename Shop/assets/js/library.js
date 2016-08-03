@@ -3,6 +3,7 @@ var library = (function () {
     var api = {
         forEach: forEach,
         filter: filter,
+        filterByKeyValue: filterByKeyValue,
         namespace:  namespace,
         mix: mix,
         on: function (element, event, callback, context) {
@@ -29,6 +30,17 @@ var library = (function () {
             }
         });
         return result;
+    }
+
+    function filterByKeyValue(arr, key, text) {
+        var expression = new RegExp(text, 'ig');
+
+        function isRowMatching(row) {
+            var value = row[key];
+            return expression.test(value);
+        }
+
+        return filter(arr, isRowMatching);
     }
 
     function namespace(path) {
