@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "ABC-23456",
+      "price": "200.99 PLN",
+      "name": "Smart TV 13'"
+    },
+    {
+      "id": "HTR-72666",
+      "price": "100.99 PLN",
+      "name": "Mp3 player"
+    },
+    {
+      "id": "OHT-81123",
+      "price": "1200 PLN",
+      "name": "Laptop"
+    }
+  ]
+}

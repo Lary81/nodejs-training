@@ -1,0 +1,22 @@
+{
+  "name": "Shop",
+  "authors": [
+    "Łukasz Andrzejewski <lukasz.andrzejewski@inbright.pl>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "mustache.js": "^2.2.1",
+    "es6-promise-polyfill": "^1.1.1"
+  }
+}

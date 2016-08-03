@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <script src="bower_components/mustache.js/mustache.js"></script>
+    <script src="assets/js/library.js"></script>
+    <script src="assets/js/library-dom.js"></script>
+    <script src="assets/js/library-remote.js"></script>
+    <script>
+        library.onReady(function () {
+            var dom = this.namespace('dom'),
+                remote = this.namespace('remote'),
+                myDiv = dom.get('#myDiv');
+
+            function print(data) {
+                console.log(data);
+            }
+
+            function refreshProductsData() {
+               remote.ajax({url: 'products.json', onSuccess: print})
+            }
+
+            this.on(myDiv, 'click', refreshProductsData);
+        });
+    </script>
+</head>
+<body>
+<div id="myDiv" style="width: 100px; height: 100px; background-color: red;"></div>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/es6-promise-polyfill/promise.js"></script>
+</body>
+</html>
