@@ -59,3 +59,10 @@ gulp.task('dev', function () {
         .pipe(gulp.dest('.'));
 });
 
+gulp.task('prod', ['css', 'scripts', 'resources'], function () {
+    var src = gulp.src(['app/app.js', 'assets/css/style.css'], {read: false});
+    return gulp.src('index_base.html')
+        .pipe(rename('index.html'))
+        .pipe(inject(src, {addRootSlash: false}))
+        .pipe(gulp.dest(buildDir));
+});
