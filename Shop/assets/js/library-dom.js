@@ -1,5 +1,6 @@
 (function ($) {
     'use strict';
+
     var dom = $.namespace('dom');
 
     if (typeof  library === 'undefined') {
@@ -12,7 +13,6 @@
     dom.render = function (viewSelector, templateSelector, data) {
         var view = document.querySelector(viewSelector),
             template = document.querySelector(templateSelector).innerHTML;
-
         view.innerHTML = Mustache.render(template, data);
     };
 

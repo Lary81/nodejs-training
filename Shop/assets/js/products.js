@@ -1,5 +1,6 @@
 (function () {
     'use strict';
+
     library.onReady(function () {
         var dom = this.namespace('dom'),
             remote = this.namespace('remote'),

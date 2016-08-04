@@ -1,5 +1,6 @@
 (function ($) {
     'use strict';
+
     var remote = $.namespace('remote');
 
     if (typeof  library === 'undefined') {
@@ -72,7 +73,6 @@
     remote.ajax = function (config) {
         var settings = prepareSettings(config),
             cachedData = {};
-
         if (settings.useCache) {
             cachedData = readFromCache(settings);
             if (cachedData !== undefined) {

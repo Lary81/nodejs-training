@@ -1,5 +1,6 @@
 var library = (function () {
     'use strict';
+
     var api = {
         forEach: forEach,
         filter: filter,
@@ -23,7 +24,6 @@ var library = (function () {
 
     function filter(arr, predicate) {
         var result = [];
-
         forEach(arr, function (value) {
             if (predicate(value)) {
                 result.push(value);
@@ -34,12 +34,10 @@ var library = (function () {
 
     function filterByKeyValue(arr, key, text) {
         var expression = new RegExp(text, 'ig');
-
         function isRowMatching(row) {
             var value = row[key];
             return expression.test(value);
         }
-
         return filter(arr, isRowMatching);
     }
 
@@ -66,7 +64,7 @@ var library = (function () {
     function bind(context, func) {
         return function () {
             return func.apply(context, arguments);
-        }
+        };
     }
 
     if (typeof window.addEventListener === 'undefined') {
