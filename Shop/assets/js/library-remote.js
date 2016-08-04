@@ -11,10 +11,10 @@
 
     function readFromCache(settings) {
         var cachedData;
-        if (settings.useCache && localStorage !== undefined) {
+        if (localStorage !== undefined) {
             cachedData = localStorage.getItem(settings.url);
             if (cachedData !== null) {
-                return JSON.parse(localStorage.getItem(settings.url));
+                return JSON.parse(cachedData);
             }
         }
     }

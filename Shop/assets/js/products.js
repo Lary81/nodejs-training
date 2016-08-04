@@ -11,11 +11,7 @@
         }
 
         function filterProducts(data) {
-            return new Promise(function (resolve) {
-                resolve({
-                    products: $.filterByKeyValue(data.products, dom.getValue('#filterBy'), dom.getValue('#filterValue'))
-                })
-            });
+            return Promise.resolve({products: $.filterByKeyValue(data.products, dom.getValue('#filterBy'), dom.getValue('#filterValue'))});
         }
 
         function getProductsData() {
