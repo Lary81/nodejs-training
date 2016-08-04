@@ -24,3 +24,38 @@ var scripts = [
     'app/*.js'
 ];
 
+var resources = [
+    'assets/img/*'
+];
+
+gulp.task('clean', function () {
+    return del(buildDir);
+});
+
+gulp.task('css', function () {
+    return gulp.src(css)
+        .pipe(concat('style.css'))
+        .pipe(minifyCss({compatibility: 'ie8'}))
+        .pipe(gulp.dest(buildDir + '/assets/css'));
+});
+
+gulp.task('scripts', function () {
+    return gulp.src(scripts)
+        .pipe(concat('app.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(buildDir + '/app'));
+});
+
+gulp.task('resources', function () {
+    return gulp.src(resources)
+        .pipe(gulp.dest(buildDir + '/assets'));
+});
+
+gulp.task('dev', function () {
+    var src = gulp.src(scripts.concat(css), {read: false});
+    return gulp.src('index_base.html')
+        .pipe(rename('index.html'))
+        .pipe(inject(src, {addRootSlash: false}))
+        .pipe(gulp.dest('.'));
+});
+

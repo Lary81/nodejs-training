@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+<div class="container">
+    <form class="well">
+        <div class="form-group">
+            <label for="filterBy">Kolumna</label>
+            <select id="filterBy" class="form-control">
+                <option value="id">Id</option>
+                <option value="price">Cena</option>
+                <option value="name" selected="selected">Nazwa</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input id="filterValue" class="form-control" placeholder="Szukany tekst">
+        </div>
+        <div class="form-group">
+            <button id="filterBtn" type="button" class="btn">Filtruj</button>
+            <button id="refreshBtn" type="button" class="btn btn-primary pull-right">Odśwież</button>
+        </div>
+    </form>
+    <table id="products" class="table table-striped table-condensed table-hover">
+        <caption>Produkty</caption>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cena</th>
+            <th>Nazwa</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script id="productsTemplate" type="text/html">
+    {{#products}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{price}}</td>
+        <td>{{name}}</td>
+    </tr>
+    {{/products}}
+</script>
+</body>
+<body>
+<!-- inject:js -->
+<!-- endinject -->
+</body>
+</html>

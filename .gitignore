@@ -1,3 +1,5 @@
 /.idea/
 /Training.iml
 /Shop/bower_components/
+/Shop/node_modules/
+/Shop/dist/
