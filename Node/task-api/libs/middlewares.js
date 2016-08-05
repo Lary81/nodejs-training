@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import express from "express";
 
 module.exports = APP => {
     APP.set('json spaces', 4);
@@ -11,4 +12,5 @@ module.exports = APP => {
             next();
         }
     });
+    APP.use(express.static("public"));
 };

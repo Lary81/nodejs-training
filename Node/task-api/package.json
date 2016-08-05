@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "start": "babel-node index.js",
+    "apidoc": "apidoc -i routes/ -o public/apidoc",
+    "test": "NODE_ENV=test mocha test/**/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +22,12 @@
     "passport-jwt": "^2.1.0",
     "sequelize": "^3.23.6",
     "sqlite3": "^3.1.4"
+  },
+  "devDependencies": {
+    "apidoc": "^0.16.1",
+    "babel-register": "^6.11.6",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.1",
+    "supertest": "^2.0.0"
   }
 }
