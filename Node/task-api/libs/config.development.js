@@ -1,3 +1,5 @@
+import logger from './logger.js';
+
 module.exports = {
     database: 'tasks',
     username: '',
@@ -7,6 +9,9 @@ module.exports = {
         storage: 'tasks.sqlite',
         define: {
             underscored: true
+        },
+        logging: (sql) => {
+            logger.info(`[${new Date()}] ${sql}`);
         }
     },
     jwtSecret: 'topSecretSecret',
